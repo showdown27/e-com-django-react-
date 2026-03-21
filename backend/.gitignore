@@ -2,6 +2,7 @@
 env/
 venv/
 ENV/
+.env
 
 # Django files
 db.sqlite3
