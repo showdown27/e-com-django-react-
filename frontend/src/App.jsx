@@ -1,32 +1,22 @@
-import { useState, useEffect } from 'react';
+import ProductList from "../pages/ProductList.jsx"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import ProductDetail from "../pages/ProductDetails.jsx"
 
 import React from 'react'
+import ProductDetails from "../pages/ProductDetails.jsx"
 
 
-const App = () => {
-  const [products, setProducts] = useState([]);
-  useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/products/')
-      .then(response => response.json())
-      .then(data => setProducts(data))
-      .catch(error => console.error('Error fetching message:', error));
-  }, []);
-  
+const App = () => {  
   return (
-    <div className='min-h-screen bg-gray-100 test-gray-800 p-2'>
-      <h1 className='text-3xl font-bold underline'>Product Name</h1>
-      <div className='container mx-auto p-4 flex'>
-        {products.map(product =>(
-          <div className="bg-white rounded p-4 mb-4 shadow w-1/3 m-4" key={product.id}>
-            <image >{product.image || "no image"}</image>
-            <h2 className='text-xl font-semibold'>{product.name}</h2>
-            <p className='text-gray-800'>{product.description}</p>
-            <p className='text-red-500 font-bold'>{product.price}</p>
-            <button className='bg-green-500 p-1 rounded-md w-30 hover:bg-green-400'>Add to Cart</button>
-          </div>
-        ))}
-      </div>
-    </div>
+    
+      <Router>
+      <Routes>
+        <Route path="/" element={<ProductList/>} />
+        <Route path="/product/:id" element = {<ProductDetails/>}></Route>
+      </Routes>
+    </Router>
+    
+    
   )
 }
 
