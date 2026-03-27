@@ -1,9 +1,9 @@
-import ProductList from "../pages/ProductList.jsx"
+import ProductList from "./pages/ProductList.js"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import ProductDetail from "../pages/ProductDetails.jsx"
+import ProductDetail from "./pages/ProductDetails.jsx"
 
 import React from 'react'
-import ProductDetails from "../pages/ProductDetails.jsx"
+import ProductDetails from "./pages/ProductDetails.jsx"
 
 
 const App = () => {  
